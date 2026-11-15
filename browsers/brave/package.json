@@ -1,0 +1,19 @@
+{
+  "name": "linis",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Jev decides what to extract from the page you are reading.",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "node tests/browser.mjs",
+    "test:live": "node tests/browser.mjs --live",
+    "test:capture": "node tests/capture-browser.mjs",
+    "test:performance": "node tests/scroll-performance.mjs --verify",
+    "package": "node scripts/package.mjs"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.16.0"
+  },
+  "license": "Apache-2.0"
+}

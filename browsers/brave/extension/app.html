@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linis — page extraction</title>
+  <link rel="icon" href="icons/linis-purple32.png">
+  <link rel="stylesheet" href="app.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header id="topbar" class="topbar">
+    <div class="brand-row">
+      <div class="brand"><img src="icons/linis-purple48.png" width="28" height="28" alt=""><div>Linis<span class="brand-dot">.</span><small id="active-provider">Connect Jev to begin</small></div></div>
+      <div class="header-tools"><button id="open-settings" class="text-button" aria-label="Open settings">Settings</button><button id="workspace" class="icon-button" title="Open full workspace" aria-label="Open full workspace">↗</button></div>
+    </div>
+    <div class="toolbar" aria-label="Page actions">
+      <button id="extract" class="primary" disabled><span>Extract this page</span><span aria-hidden="true">↗</span></button>
+      <button id="stop" class="secondary stop-button" hidden>Stop</button>
+      <button id="cancel-capture" class="text-button" hidden>Cancel</button>
+      <button id="save-file" class="secondary" disabled>↓ Save file</button>
+    </div>
+    <div class="toolbar-note"><button id="output-settings" class="text-button">Auto-save: Markdown</button><span id="version"></span></div>
+  </header>
+  <main>
+    <section class="capture" aria-label="Extract page content">
+      <div class="source-row"><span class="source-icon">↳</span><div><span class="label">SOURCE PAGE</span><p id="source" class="source-name">Finding your page…</p></div></div>
+      <label for="mode">What should Jev find?</label>
+      <select id="mode"><option value="all">All useful information</option><option value="facts">Key facts</option><option value="contacts">People &amp; contacts</option><option value="comments">Posts &amp; comments</option><option value="data">Prices &amp; specifications</option><option value="sources">Sources &amp; citations</option></select>
+      <p id="mode-hint" class="field-hint">Keep useful page content and its original evidence.</p>
+      <label for="goal">Additional focus <span class="optional">optional</span></label>
+      <textarea id="goal" rows="2" maxlength="1000" placeholder="For example: findings about AI in education"></textarea>
+      <p id="capture-hint" class="field-hint"></p>
+      <label class="toggle" for="highlight"><span><strong>Show reading highlights</strong><small>Yellow: scan · Green: kept · Red: rejected.</small></span><input id="highlight" type="checkbox" checked></label>
+      <p id="privacy" class="privacy">Extracted page text and URLs go to your selected Jev provider. Your form inputs stay out.</p>
+    </section>
+    <section id="progress-panel" class="progress-panel" hidden aria-live="polite">
+      <div class="status-row"><span id="status-dot" class="status-dot"></span><strong id="phase"></strong><span id="counts"></span></div>
+      <progress id="progress" max="100" value="0" aria-label="Page blocks evaluated"></progress>
+    </section>
+    <p id="notice" role="status" hidden></p>
+    <p id="file-status" class="file-status" role="status" hidden></p>
+    <details id="capture-settings" class="settings-section">
+      <summary>Page capture settings</summary>
+      <div class="settings-content">
+        <label for="capture-mode">How to capture the page</label>
+        <select id="capture-mode"><option value="auto">Automatic: scroll capture on X, YouTube &amp; Facebook</option><option value="snapshot">Loaded page snapshot</option><option value="scroll">Capture as I scroll</option></select>
+        <p class="field-hint">Scroll capture watches newly loaded content for up to two minutes. Scroll the source page, then choose Finish &amp; save. It never clicks Load more or scrolls for you.</p>
+        <label for="scan-depth">Loaded-page depth</label>
+        <select id="scan-depth"><option value="deep">Deeper: up to 2,000 blocks / 800,000 characters</option><option value="standard">Standard: up to 400 blocks / 160,000 characters</option></select>
+        <p class="field-hint">Larger captures use more Jev requests. A 2.5 MB evidence budget also applies; any limit is reported.</p>
+        <label class="toggle" for="group-comments"><span><strong>Group authors with comments</strong><small>Use observed post/comment containers. Replies keep their own authors.</small></span><input id="group-comments" type="checkbox" checked></label>
+      </div>
+    </details>
+    <details id="preferences" class="settings-section">
+      <summary>File output settings</summary>
+      <div class="settings-content">
+        <label class="toggle" for="auto-save"><span><strong>Save a file automatically</strong><small>Download once each extraction finishes successfully.</small></span><input id="auto-save" type="checkbox" checked></label>
+        <label for="output-format">Default file format</label>
+        <select id="output-format"><option value="markdown">Markdown (.md)</option><option value="text">Plain text (.txt)</option><option value="json">Full evidence JSON (.json)</option></select>
+        <p class="field-hint">Files go to your browser’s Downloads folder, even if the popup is closed. Stop or error results can be saved manually. JSON includes skipped and unprocessed evidence.</p>
+      </div>
+    </details>
+    <details id="connection" class="settings-section">
+      <summary><span><span id="connection-dot" class="connection-dot"></span>Provider &amp; API keys</span><span id="connection-label">Set up Jev</span></summary>
+      <div class="settings-content">
+        <p class="field-hint">Choose the service that issued your key. Each provider has its own key, stored in this browser profile and never synced.</p>
+        <label for="provider">Jev provider</label>
+        <select id="provider"><option value="typesafe">TypeSafe</option><option value="openrouter">OpenRouter</option></select>
+        <label id="api-key-label" for="api-key">TypeSafe API key</label>
+        <input id="api-key" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your key">
+        <div class="key-actions"><button id="save-key" class="secondary">Save key</button><button id="forget-key" class="text-button">Forget key</button><a id="key-link" href="https://console.typesafe.ai/keys" target="_blank" rel="noreferrer">Get a key ↗</a></div>
+        <p id="provider-detail" class="field-hint">Internet and API credits required.</p>
+      </div>
+    </details>
+    <section id="results" hidden>
+      <div class="result-header"><div><p class="eyebrow">EXTRACTED INFORMATION</p><h1 id="result-title">Your extraction</h1></div><button id="clear" class="text-button">Clear</button></div>
+      <p id="summary" class="muted"></p>
+      <div class="export-row"><button id="markdown" class="secondary">↓ Markdown</button><button id="text" class="secondary">↓ Text</button><button id="json" class="secondary">↓ JSON</button><button id="copy" class="secondary">Copy</button></div>
+      <div class="filter-row"><label for="filter" class="sr-only">Search extracted content</label><input id="filter" type="search" placeholder="Find in results…"><label for="category" class="sr-only">Filter by Jev category</label><select id="category"><option value="all">All types</option><option value="content">Main content</option><option value="contact">People &amp; contacts</option><option value="data">Data</option><option value="media">Media</option><option value="skip">Rejected</option></select></div>
+      <label class="review-filter" for="review-only"><input id="review-only" type="checkbox">Show only decisions needing review</label>
+      <label class="review-filter" for="show-rejected"><input id="show-rejected" type="checkbox">Include rejected blocks</label>
+      <div id="cards" class="cards"></div>
+      <details id="coverage"><summary>What was covered?</summary><div id="coverage-content"></div></details>
+    </section>
+    <footer>Jev finds the information. You keep the evidence.</footer>
+  </main>
+</body>
+</html>

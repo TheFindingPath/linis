@@ -1,0 +1,5 @@
+# Stable source bytes across Windows and Unix checkouts.
+* text=auto eol=lf
+# This existing owner snapshot uses CRLF; keep its exact recorded bytes.
+/browsers/brave/scripts/icons.ps1 -text
+*.png binary

@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "recordedOn": "2026-11-15",
+  "rightsHolder": "Project owner, for rights actually held",
+  "basis": "Owner states that, to their knowledge, no other people have contributed code and development used ChatGPT and Opus outputs from their accounts. This is a recorded declaration, not independently established exclusive copyright ownership.",
+  "licenseExpression": "Apache-2.0 OR 0BSD",
+  "scope": "Only the project owner’s copyright interests in the exact code snapshots below; no third-party rights, future contributions, documentation, artwork or trademarks are included.",
+  "files": [
+    {
+      "path": "browsers/brave/extension/app.css",
+      "sha256": "a6e4eeac0f86ede7394e631349af98669c3099ba0b5467568ef01d0ba577c424"
+    },
+    {
+      "path": "browsers/brave/extension/app.html",
+      "sha256": "9669a73180dbabba67ef1f9f327d07c35c480bd2fc9ff86b837c4fca001b2ca2"
+    },
+    {
+      "path": "browsers/brave/extension/app.js",
+      "sha256": "ddf8eff6111924d526b8dfed119baac450791ef5c15581b6233001f7eb9a24b8"
+    },
+    {
+      "path": "browsers/brave/extension/background.js",
+      "sha256": "65c76f506a8e238ca4dfc1b925b84e04ae18b8e1ef65737ca29871d02b88c6e5"
+    },
+    {
+      "path": "browsers/brave/extension/lib/collector.js",
+      "sha256": "734263da082a58bd7b8a38d7d6a1df7977e90fea0be8f977f3bfaf0719b89123"
+    },
+    {
+      "path": "browsers/brave/extension/lib/export.js",
+      "sha256": "b052fbc3c71d201c3837890820ae0773c40bc475c485bbb28e05b963c6e7468d"
+    },
+    {
+      "path": "browsers/brave/extension/lib/highlight.js",
+      "sha256": "56edcf3fc9bdafe9a5a1dc771589f747f1687f59566fbf15c275e055a39b0e57"
+    },
+    {
+      "path": "browsers/brave/extension/lib/jev.js",
+      "sha256": "634c5cb7efd524ebec90dcd7864251c8be593a17cf22c3cd521a23b5a5733e01"
+    },
+    {
+      "path": "browsers/brave/extension/lib/modes.js",
+      "sha256": "0826e154cbe081223badd9e35616ef07f3384a85df0b04441ae4dccb1eb7c9e8"
+    },
+    {
+      "path": "browsers/brave/extension/lib/settings.js",
+      "sha256": "88dca47e6f8d84e22ae5c9f5574933e8315b513b752ae16b57137a120579f40f"
+    },
+    {
+      "path": "browsers/brave/scripts/icons.ps1",
+      "sha256": "770af5d26174dd7b7a3628529d4c4d67938367065b66493011017c5a0308e869"
+    },
+    {
+      "path": "browsers/brave/scripts/package.mjs",
+      "sha256": "dc4613cb79dbf46ef74fcaaae7cd428195cc65d09d31f35d968e2e36f804eec5",
+      "priorSnapshots": [
+        {
+          "sha256": "578a0e91f7a3e23783b4c2104f2958d23819266f207f02e8e513a445695b66de",
+          "note": "Earlier licensed packaging baseline; retained to identify the prior owner scope."
+        },
+        {
+          "sha256": "310ef43c0bc6a33fcca0e171dcd7964ab3f964e95542e5e1e81068a5c42b6f35",
+          "note": "Earlier packaging snapshot before source/template link relocation."
+        }
+      ],
+      "scopeNote": "Packaging-only revision requested by the project owner in the same AI-assisted session; no third-party material or other human contribution was introduced. Additional permission remains limited to rights the owner holds."
+    },
+    {
+      "path": "browsers/brave/tests/background.test.mjs",
+      "sha256": "cbd0ce101ea18b264cdaf8b53f0f700dcf49cbe10583a268a86844c04c5aec8f"
+    },
+    {
+      "path": "browsers/brave/tests/browser.mjs",
+      "sha256": "1ebb75847eeb7e696d04a4cc39da932a143bb9e7ac3dbee44bea7496a06a7df8"
+    },
+    {
+      "path": "browsers/brave/tests/capture-browser.mjs",
+      "sha256": "a438a9e0e1b177de65f7ac6a5917f4262bb8b2e150164badfb87a1c27d46484f"
+    },
+    {
+      "path": "browsers/brave/tests/collector.test.mjs",
+      "sha256": "d68e0278388502c4aaa916b3992b7b16301e43ca0ded53fd3f5ba3d7da086e85"
+    },
+    {
+      "path": "browsers/brave/tests/core.test.mjs",
+      "sha256": "614d03973f055643f2198691c02f59b765328376e9944b8d3d66da15237c9cf7"
+    },
+    {
+      "path": "browsers/brave/tests/feed-fixture.mjs",
+      "sha256": "f8a9ee2456ded9f20e2a883dc3e5552358389009a9e7a51d1cfb21618b0f471a"
+    },
+    {
+      "path": "browsers/brave/tests/fixtures/page.html",
+      "sha256": "8fe7422cc72e27235cf34daf6f776f6351eabcae5a3b9b9efc91c9ff242e0d27"
+    },
+    {
+      "path": "browsers/brave/tests/scroll-performance.mjs",
+      "sha256": "db8108b79f6d9185d939e1e65ecb43a8be552b41f038d348c09679d618393be4"
+    },
+    {
+      "path": "scripts/check-source.mjs",
+      "sha256": "bcd28692668e0dc0b72517007aed6347d59d56e063bbf2b325d40c296509e7a6",
+      "scopeNote": "Original source-audit script generated at the project owner’s request in the same AI-assisted session; no third-party code or other human contribution introduced. Grant covers only rights the owner holds."
+    }
+  ]
+}

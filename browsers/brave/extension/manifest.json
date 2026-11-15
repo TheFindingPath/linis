@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Linis",
+  "version": "1.0.0",
+  "description": "Let Jev find the useful information on your current page. Review and export the original evidence.",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://api.typesafe.ai/*",
+    "https://openrouter.ai/*"
+  ],
+  "action": {
+    "default_title": "Extract with Linis",
+    "default_popup": "app.html",
+    "default_icon": {
+      "16": "icons/linis-purple16.png",
+      "32": "icons/linis-purple32.png",
+      "48": "icons/linis-purple48.png",
+      "128": "icons/linis-purple128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/linis-purple16.png",
+    "32": "icons/linis-purple32.png",
+    "48": "icons/linis-purple48.png",
+    "128": "icons/linis-purple128.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; connect-src https://api.typesafe.ai https://openrouter.ai"
+  }
+}

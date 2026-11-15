@@ -1,0 +1,44 @@
+# Local dependencies, disposable profiles and generated evidence/packages
+node_modules/
+.test-profile*/
+artifacts/
+dist/
+*.zip
+*.crx
+*.pem
+*.log
+# Browsing evidence and local browser state must not enter source control.
+screenshots/
+captures/
+downloads/
+browser-profiles/
+test-results/
+playwright-report/
+*.har
+*.pcap
+*.dmp
+*.sqlite
+*.sqlite3
+*storage-state*.json
+# Credentials and local configuration
+.env
+.env.*
+*.env
+*.key
+*credentials*
+*secrets*
+# OS/editor junk
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Internal records are never public source.
+/PROGRESS.md
+/docs/reviews/
+/docs/COUNCIL-LOG.md
+/docs/AGENT-FILES-INDEX.md
